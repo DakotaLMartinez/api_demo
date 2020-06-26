@@ -10,5 +10,9 @@ require "api_demo"
 # require "pry"
 # Pry.start
 
+response = HTTParty.get('http://api.tvmaze.com/shows')
+body = response.body
+@data = JSON.parse(body)
 require "irb"
+
 IRB.start(__FILE__)
