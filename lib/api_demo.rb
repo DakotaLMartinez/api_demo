@@ -1,4 +1,5 @@
 require "httparty"
+require "http"
 # require "api_demo/version"
 # require "api_demo/api_provider"
 # require "api_demo/api"
@@ -6,6 +7,7 @@ require "httparty"
 
 require_relative "api_demo/version"
 require_relative "api_demo/tvshow"
+require_relative "api_demo/restaurant"
 require_relative "api_demo/api"
 require_relative "api_demo/cli"
 

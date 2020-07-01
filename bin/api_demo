@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
 require "bundler/setup"
+require "pry"
 require_relative "../lib/api_demo"
 
 ApiDemo::CLI.new.start
