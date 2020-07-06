@@ -36,8 +36,7 @@ module ApiDemo
       }
     
       response = HTTP.auth("Bearer #{api_key}").get(url, params: params)
-      binding.pry
-      response.parse
+      JSON.parse(response)["businesses"]
     end
     
     def self.get_shows 
