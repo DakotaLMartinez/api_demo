@@ -38,14 +38,5 @@ module ApiDemo
       response = HTTP.auth("Bearer #{api_key}").get(url, params: params)
       JSON.parse(response)["businesses"]
     end
-    
-    def self.get_shows 
-      response = HTTParty.get('http://api.tvmaze.com/shows')
-      body = response.body
-      JSON.parse(body)
-      
-    end
-    
-    
   end
 end
