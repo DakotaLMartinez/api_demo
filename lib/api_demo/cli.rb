@@ -6,7 +6,20 @@ module ApiDemo
 
     def start 
       puts "Welcome to our Yelp Restaurant Searcher CLI!"
-      set_location
+      while @input != "exit"
+        set_location
+        start_restaurant_picker
+      end
+      goodbye
+    end
+
+    def set_location 
+      puts "So we can figure out where you wanna eat tonight, where are you?"
+      @location = gets.chomp
+      Restaurant.load_by_location(@location)
+    end
+
+    def start_restaurant_picker
       list_restaurants
       ask_for_choice
       while @input != "exit" && @input != "back"
@@ -19,13 +32,6 @@ module ApiDemo
         end
         ask_for_choice
       end
-      goodbye
-    end
-
-    def set_location 
-      puts "So we can figure out where you wanna eat tonight, where are you?"
-      @location = gets.chomp
-      Restaurant.load_by_location(@location)
     end
   
     def list_restaurants 
@@ -36,7 +42,7 @@ module ApiDemo
 
     def ask_for_choice
       list_choices
-      @input = gets.strip
+      @input = gets.strip.downcase
     end
 
     def list_choices 
