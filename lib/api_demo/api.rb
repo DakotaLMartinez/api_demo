@@ -38,5 +38,13 @@ module ApiDemo
       response = HTTP.auth("Bearer #{api_key}").get(url, params: params)
       JSON.parse(response)["businesses"]
     end
+
+    def self.get_reviews(business_id)
+      # https://api.yelp.com/v3/businesses/{id}/reviews
+      url = "#{API_HOST}#{BUSINESS_PATH}#{business_id}/reviews"
+    
+      response = HTTP.auth("Bearer #{api_key}").get(url)
+      JSON.parse(response)["reviews"]
+    end
   end
 end

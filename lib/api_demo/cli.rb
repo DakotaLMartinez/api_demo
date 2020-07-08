@@ -23,6 +23,7 @@ module ApiDemo
       list_restaurants
       ask_for_choice
       while @input != "exit" && @input != "back"
+        binding.pry if @input == "debug"
         if @input == "list"
           list_restaurants
         elsif valid?

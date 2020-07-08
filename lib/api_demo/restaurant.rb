@@ -40,11 +40,32 @@ module ApiDemo
 #{self.address}
 #{self.phone}
 
+Reviews: 
+
+#{self.display_reviews}
+
       HEREDOC
     end
 
     def address
       location["display_address"].join("\n")
+    end
+
+    def reviews 
+      @reviews ||= API.get_reviews(self.id)
+    end
+
+    def display_reviews
+      self.reviews.map do |review|
+        [
+          "Reviewer: #{review['user']['name']}",
+          "Rating: #{review['rating']}",
+          DateTime.parse(review['time_created']).strftime("%B %e, %Y %l:%M %p"),
+          review['text'],
+          "Keep Reading: #{review['url']}",
+          ""
+        ].join("\n")
+      end.join("\n")
     end
   end
 end
