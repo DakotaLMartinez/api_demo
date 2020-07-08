@@ -6,7 +6,6 @@ require "http"
 # require "api_demo/cli"
 
 require_relative "api_demo/version"
-require_relative "api_demo/tvshow"
 require_relative "api_demo/restaurant"
 require_relative "api_demo/api"
 require_relative "api_demo/cli"
